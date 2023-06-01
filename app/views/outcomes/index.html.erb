@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Saídas</h1>
+  <%= link_to "Adicionar usuário", new_group_membership_path(params[:group_id]), class:"btn btn-dark" %>
   <%= render partial: 'form' %>
 
   <div class="table-responsive">

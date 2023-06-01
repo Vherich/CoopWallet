@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :groups do
     resources :incomes
     resources :outcomes, except: :show
-  end
-  resources :users do
     resources :memberships
+
   end
+  resources :users
+
   resources :outcomes, only: :show
   # Defines the root path route ("/")
   # root "articles#index"

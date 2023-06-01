@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create(name: "João", email: "joao@example.com")
+User.create(name: "João", email: "joao@example.com", password: "123456")
 Group.create(group_name: "Amigos")
 Income.create(date: Date.today, income_category: "Salário", value: 1000.00, description: "Meu salário",
               user: User.first, group: Group.first)
