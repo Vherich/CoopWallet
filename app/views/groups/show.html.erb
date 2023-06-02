@@ -1,7 +1,10 @@
+<div class="container">
 <h1>Olá</h1>
 <%= @group.group_name %>
 <% @group.memberships.each do |m| %>
 <p><%= m.user.name %></p>
 <% end %>
-<%= link__to "Despesas", group_incomes_path  %>
-<%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to 'Entradas', group_incomes_path(@group), class: "btn btn-dark"%>
+<%= link_to 'Saídas', group_outcomes_path(@group), class: "btn btn-dark"%>
+<%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2 mt-3", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
