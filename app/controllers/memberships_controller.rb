@@ -19,9 +19,9 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @membership.user = Membership.where(user: current_user)
-    @membership.user.destroy
-    redirect_to root_path
+    @membership = Membership.find_by(user: current_user)
+    @membership.destroy
+    redirect_to groups_path
   end
 
   private

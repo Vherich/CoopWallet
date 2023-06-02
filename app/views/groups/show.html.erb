@@ -1,0 +1,6 @@
+<h1>Olá</h1>
+<%= @group.group_name %>
+<% @group.memberships.each do |m| %>
+<p><%= m.user.name %></p>
+<% end %>
+<%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
