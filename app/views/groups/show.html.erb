@@ -3,4 +3,5 @@
 <% @group.memberships.each do |m| %>
 <p><%= m.user.name %></p>
 <% end %>
+<%= link__to "Despesas", group_incomes_path  %>
 <%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
