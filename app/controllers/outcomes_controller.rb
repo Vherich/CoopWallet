@@ -1,0 +1,2 @@
+class OutcomesController < ApplicationController
+end
