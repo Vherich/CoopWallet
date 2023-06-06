@@ -52,15 +52,15 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@jridgewell/sourcemap-codec@^1.4.10":
-  version "1.4.15"
-  resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"
-  integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
-
 "@jridgewell/sourcemap-codec@1.4.14":
   version "1.4.14"
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
+
+"@jridgewell/sourcemap-codec@^1.4.10":
+  version "1.4.15"
+  resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"
+  integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
 "@jridgewell/trace-mapping@^0.3.17", "@jridgewell/trace-mapping@^0.3.9":
   version "0.3.18"
@@ -75,7 +75,7 @@
   resolved "https://registry.npmjs.org/@kurkle/color/-/color-0.3.2.tgz"
   integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
 
-"@popperjs/core@^2.11.7", "@popperjs/core@^2.11.8":
+"@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
@@ -116,7 +116,7 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-20.2.5.tgz"
   integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
 
-"@webassemblyjs/ast@^1.11.5", "@webassemblyjs/ast@1.11.6":
+"@webassemblyjs/ast@1.11.6", "@webassemblyjs/ast@^1.11.5":
   version "1.11.6"
   resolved "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.6.tgz"
   integrity sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==
@@ -217,7 +217,7 @@
     "@webassemblyjs/wasm-gen" "1.11.6"
     "@webassemblyjs/wasm-parser" "1.11.6"
 
-"@webassemblyjs/wasm-parser@^1.11.5", "@webassemblyjs/wasm-parser@1.11.6":
+"@webassemblyjs/wasm-parser@1.11.6", "@webassemblyjs/wasm-parser@^1.11.5":
   version "1.11.6"
   resolved "https://registry.npmjs.org/@webassemblyjs/wasm-parser/-/wasm-parser-1.11.6.tgz"
   integrity sha512-6ZwPeGzMJM3Dqp3hCsLgESxBGtT/OeCvCZ4TA1JUPYgmhAx38tTPR9JaKy0S5H3evQpO/h2uWs2j6Yc/fjkpTQ==
@@ -267,7 +267,7 @@ acorn-import-assertions@^1.9.0:
   resolved "https://registry.npmjs.org/acorn-import-assertions/-/acorn-import-assertions-1.9.0.tgz"
   integrity sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==
 
-acorn@^8, acorn@^8.7.1, acorn@^8.8.2:
+acorn@^8.7.1, acorn@^8.8.2:
   version "8.8.2"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.8.2.tgz"
   integrity sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==
@@ -277,7 +277,7 @@ ajv-keywords@^3.5.2:
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
 
-ajv@^6.12.5, ajv@^6.9.1:
+ajv@^6.12.5:
   version "6.12.6"
   resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
@@ -292,7 +292,7 @@ bootstrap@^5.3.0:
   resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.0.tgz"
   integrity sha512-UnBV3E3v4STVNQdms6jSGO2CvOkjUMdDAVR2V5N4uCMdaIkaQjbcEAMqRimDHIs4uqBYzDAKCQwCB+97tJgHQw==
 
-browserslist@^4.14.5, "browserslist@>= 4.21.0":
+browserslist@^4.14.5:
   version "4.21.7"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.21.7.tgz"
   integrity sha512-BauCXrQ7I2ftSqd2mvKHGo85XR0u7Ru3C/Hxsy/0TkfCtjrmAbPdzLGasmoiBxplpDXlPvdjX9u7srIMfgasNA==
@@ -765,7 +765,7 @@ watchpack@^2.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-webpack-cli@^5.1.3, webpack-cli@5.x.x:
+webpack-cli@^5.1.3:
   version "5.1.3"
   resolved "https://registry.npmjs.org/webpack-cli/-/webpack-cli-5.1.3.tgz"
   integrity sha512-MTuk7NUMvEHQUSXCpvUrF1q2p0FJS40dPFfqQvG3jTWcgv/8plBNz2Kv2HXZiLGPnfmSAA5uCtCILO1JBmmkfw==
@@ -797,9 +797,9 @@ webpack-sources@^3.2.3:
   resolved "https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.3.tgz"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack@^5.1.0, webpack@^5.85.1, webpack@5.x.x:
+webpack@^5.85.1:
   version "5.85.1"
-  resolved "https://registry.npmjs.org/webpack/-/webpack-5.85.1.tgz"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.85.1.tgz#d77406352f8f14ec847c54e4dcfb80b28c776b3f"
   integrity sha512-xTb7MRf4LY8Z5rzn7aIx4TDrwYJrjcHnIfU1TqtyZOoObyuGSpAUwIvVuqq5wPnv7WEgQr8UvO1q/dgoGG4HjA==
   dependencies:
     "@types/eslint-scope" "^3.7.3"
