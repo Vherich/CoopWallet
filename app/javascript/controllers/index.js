@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ExpenseController from "./expense_controller"
+application.register("expense", ExpenseController)
+
 import ChartController from "./chart_controller"
 application.register("chart", ChartController)
 
