@@ -1,0 +1,9 @@
+<div>
+   <%= simple_form_for [@group, Income.new] do |f|  %>
+    <%= f.input :date, label: "Data" %>
+    <%= f.input :income_category, label: "Categoria" %>
+    <%= f.input :description, label: "Descrição" %>
+    <%= f.input :value, label: "Valor" %>
+    <%= f.submit "Cadastrar", class:"btn btn-secondary" %>
+   <% end %>
+</div>
