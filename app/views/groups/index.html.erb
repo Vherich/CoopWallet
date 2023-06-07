@@ -1,4 +1,13 @@
-<h1>Olá</h1>
-<%= @groups.each do |group| %>
-<%= group.group_name %>
-<% end %>
+<div class="container">
+<h1>Meus Grupos</h1>
+<% @groups.each do |group| %>
+  <div class="card border-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"><%= group.group_name %></div>
+  <div class="card-body text-primary">
+    <button>Adicionar Usuário</button>
+    <button>Sair do Grupo</button>
+  </div>
+  </div>
+  <% end %>
+  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
+</div>
