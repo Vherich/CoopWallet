@@ -1,4 +1,6 @@
 class OutcomesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @outcome = Outcomes.new
   end
@@ -12,7 +14,13 @@ class OutcomesController < ApplicationController
     @group = Group.find(params[:group_id])
     @outcome = Outcome.new(outcome_params)
     @outcome.group = @group
-   end
+    @outcome.user = current_user
+      if @outcome.save
+        redirect_to group_outcomes_path(@group)
+      else
+        render :index, status: :unprocessable_entity
+      end
+  end
 
   def update
   end
@@ -20,8 +28,9 @@ class OutcomesController < ApplicationController
   def destroy
   end
 
+  private
+
   def outcome_params
     params.require(:outcome).permit(:date, :outcome_category, :description, :value, :payment_form)
   end
-
 end
