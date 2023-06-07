@@ -1,58 +1,67 @@
-// Specific CSS for your home-page
-<style>
-    /* Navbar */
-    .navbar {
-        width: 100%;
-        height: 60px;
-        background-color: #f2f2f2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-    }
+/*navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
 
-    .navbar img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
+.navbar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
-    /* Banner */
-    .banner {
-        width: 100%;
-        height: 200px;
-        background-color: #e8e8e8;
-    }
+/* banner */
+.banner {
+  width: 100%;
+  height: 200px;
+  background-color: #e8e8e8;
+}
 
-    /* Info do app */
-    .app-info {
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        font-size: 18px;
-    }
+/* info */
+.app-info {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
 
-    /* Estilos p/ imagem */
-    .image {
-        width: 100%;
-        height: 300px;
-        background-image: url('caminho/para/imagem.jpg');
-        background-size: cover;
-        background-position: center;
-    }
+/* imagem */
+.image {
+  width: 100%;
+  height: 300px;
+  background-image: url('caminho/para/imagem.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
-    /* Estilos para os buttons */
-    .buttons {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
+/* campos de entrada de texto */
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-    .buttons button {
-        padding: 10px 20px;
-        margin: 0 10px;
-        font-size: 16px;
-    }
-</style>
+.input-container input {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* botão de cadastro */
+.signup-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signup-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
