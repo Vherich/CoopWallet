@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Olá </h1>
+  <h1>Olá</h1>
   <h3>Esse é resumo do seu grupo </h3>
   <div class="row">
 
@@ -27,8 +27,9 @@
         </div>
         </div>
       </div>
-  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
-
-
+  <div class="row">
+  <%= link_to  "Meus Grupos", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  </div>
 </div>
 </div>
