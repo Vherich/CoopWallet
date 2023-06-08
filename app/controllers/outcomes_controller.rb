@@ -7,7 +7,27 @@ class OutcomesController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @outcomes = Outcome.where(group: @group)
+    @outcomes = Outcome.where(group: @group).order(:date)
+    @chart_data = {
+      labels: @outcomes.pluck(:date),
+      datasets: [{
+        label: 'Saídas (R$)',
+        backgroundColor: '#ff7883a9',
+        borderColor: 'black',
+        type: 'bar',
+        data: @outcomes.pluck(:value)
+      }]
+    }
+
+    @chart_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   end
 
   def create

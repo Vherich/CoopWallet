@@ -1,4 +1,3 @@
-=======
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +24,13 @@
         <button>Cadastre</button>
     </div>
 </body>
+
+<canvas
+  data-controller="chart"
+  data-chart-data-value="<%= @chart_data.to_json %>"
+  data-chart-options-value="<%= @chart_options.to_json %>"
+></canvas>
+
 <div class="container">
   <h1>Home</h1>
 

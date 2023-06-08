@@ -5,14 +5,15 @@ class IncomesController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @incomes = Income.where(group: @group)
+    @incomes = Income.where(group: @group).order(:date)
     @chart_data = {
-      labels: Income.where(group_id: @group.id).date,
+      labels: @incomes.pluck(:date),
       datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'transparent',
-        borderColor: '#3B82F6',
-        data: [37, 83, 78, 54, 12, 5, 91818]
+        label: 'Entradas (R$)',
+        backgroundColor: '#90eebfa9',
+        borderColor: 'black',
+        type: 'bar',
+        data: @incomes.pluck(:value)
       }]
     }
 

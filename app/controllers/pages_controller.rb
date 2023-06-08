@@ -12,4 +12,30 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def index
+    @group = Group.find(params[:group_id])
+    @incomes = Income.where(group: @group).order(:date)
+    @outcomes = Outcome.where(group: @group).order(:date)
+    @chart_data = {
+      labels: @incomes.pluck(:date),
+      datasets: [{
+        label: 'Entradas (R$)',
+        backgroundColor: '#90eebfa9',
+        borderColor: 'black',
+        type: 'doughnut',
+        data: @incomes.pluck(:value)
+      }]
+    }
+
+    @chart_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  end
 end
