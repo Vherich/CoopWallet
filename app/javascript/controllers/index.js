@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import Chart from 'stimulus-chartjs'
+application.register('chart', Chart)
+
+import ExpenseController from "./expense_controller"
+application.register("expense", ExpenseController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

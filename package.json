@@ -2,11 +2,13 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@cubejs-client/core": "^0.31.0",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.0",
     "chart.js": "^4.3.0",
+    "stimulus-chartjs": "^5.0.0",
     "webpack": "^5.85.1",
     "webpack-cli": "^5.1.3"
   },

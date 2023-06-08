@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Olá</h1>
+  <h3>Esse é resumo do seu grupo </h3>
+  <div class="row">
+
+    <div class="col-sm-3">
+      <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-success">Total de Entradas </div>
+        <div class="card-body text-success">
+          <h5 class="card-title">R$</h5>
+        </div>
+        </div>
+      </div>
+    <div class="col-sm-3">
+      <div class="card border-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-danger">Total de Saídas </div>
+        <div class="card-body text-danger">
+          <h5 class="card-title">R$</h5>
+        </div>
+        </div>
+      </div>
+    <div class="col-sm-3">
+      <div class="card border-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-secondary">Resumo Mensal </div>
+        <div class="card-body text-secondary">
+          <h5 class="card-title">R$</h5>
+        </div>
+        </div>
+      </div>
+  <div class="row">
+  <%= link_to  "Meus Grupos", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  </div>
+</div>
+</div>

@@ -25,4 +25,29 @@
         <button class="signup-button">Cadastre</button>
     </div>
 </body>
+
+<canvas
+  data-controller="chart"
+  data-chart-data-value="<%= @chart_data.to_json %>"
+  data-chart-options-value="<%= @chart_options.to_json %>"
+></canvas>
+
+<div class="container">
+  <h1>Home</h1>
+
+  <% if @groups.empty? %>
+    <p>Você não está em nenhum grupo</p>
+    <% else %>
+    <% @groups.each do |group| %>
+    <p><%= group.group_name %></p>
+    <%= link_to 'Saídas', group_outcomes_path(group), class: "btn btn-dark"%>
+    <%= link_to 'Entradas', group_incomes_path(group), class: "btn btn-dark"%>
+
+    <% end %>
+
+    <% end %>
+
+
+
+</div>
 </html>
