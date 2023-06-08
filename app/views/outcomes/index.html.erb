@@ -1,8 +1,13 @@
 <div class="container">
   <h1>Saídas</h1>
-  <%= link_to "Adicionar usuário", new_group_membership_path(params[:group_id]), class:"btn btn-dark" %>
 
-  <%= render partial: 'form', locals: {group: @group, outcome: Outcome.new} %>
+  <canvas
+  data-controller="chart"
+  data-chart-data-value="<%= @chart_data.to_json %>"
+  data-chart-options-value="<%= @chart_options.to_json %>"
+></canvas>
+
+  <%= render partial: 'form' %>
 
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">

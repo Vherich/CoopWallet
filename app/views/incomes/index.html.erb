@@ -1,5 +1,12 @@
 <div class="container">
   <h1>Entradas</h1>
+
+  <canvas
+  data-controller="chart"
+  data-chart-data-value="<%= @chart_data.to_json %>"
+  data-chart-options-value="<%= @chart_options.to_json %>"
+></canvas>
+
   <%= render partial: 'form' %>
 
   <div class="table-responsive">
