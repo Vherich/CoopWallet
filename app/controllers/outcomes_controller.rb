@@ -35,14 +35,25 @@ class OutcomesController < ApplicationController
     @outcome = Outcome.new(outcome_params)
     @outcome.group = @group
     @outcome.user = current_user
-      if @outcome.save
-        redirect_to group_outcomes_path(@group)
-      else
-        render :index, status: :unprocessable_entity
-      end
+    if @outcome.save
+      redirect_to group_outcomes_path(@group)
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  def edit
   end
 
   def update
+    @outcome = Outcome.find(params[:id])
+    @outcome.update(outcome_params)
+    respond_to do |f|
+      f.html
+      f.text {
+        render partial: 'outcomes/outcome', locals: {outcome: @outcome}, formats: :html
+      }
+    end
   end
 
   def destroy

@@ -1,7 +1,8 @@
 <div class="container">
-  <h1>Olá </h1>
-  <h3>Esse é resumo do seu grupo X</h3>
+  <h1>Olá</h1>
+  <h3>Esse é resumo do seu grupo </h3>
   <div class="row">
+
     <div class="col-sm-3">
       <div class="card border-success mb-3" style="max-width: 18rem;">
         <div class="card-header bg-transparent border-success">Total de Entradas </div>
@@ -26,8 +27,9 @@
         </div>
         </div>
       </div>
-  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
-
-
+  <div class="row">
+  <%= link_to  "Meus Grupos", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+  </div>
 </div>
 </div>

@@ -23,16 +23,8 @@
       </thead>
 
       <tbody>
-        <% @incomes.each do |income| %>
-          <%= content_tag :tr, id: dom_id(income), class: dom_class(income) do %>
-            <td><%= income.date %></td>
-            <td><%= income.income_category %></td>
-            <td><%= income.description %></td>
-            <td><%= income.value %></td>
-            <td><%= income.user.name %></td>
-            <td><%= link_to 'Editar', root_path %></td>
-            <td><%= link_to 'Deletar', root_path %></td>
-          <% end %>
+        <% @incomes.reverse.each do |income| %>
+         <%= render partial: 'income', locals: {income: income} %>
         <% end %>
       </tbody>
     </table>

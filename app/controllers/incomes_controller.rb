@@ -1,4 +1,6 @@
 class IncomesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @income = Income.new
   end
@@ -32,6 +34,12 @@ class IncomesController < ApplicationController
     @group = Group.find(params[:group_id])
     @income = Income.new(income_params)
     @income.group = @group
+    @income.user = current_user
+    if @income.save
+      redirect_to group_incomes_path(@group)
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -40,7 +48,9 @@ class IncomesController < ApplicationController
   def destroy
   end
 
-  def outcome_params
+  private
+
+  def income_params
     params.require(:income).permit(:date, :income_category, :description, :value)
   end
 end

@@ -1,0 +1,5 @@
+<%= simple_form_for [@group, @membership] do |f| %>
+<%= f.input :user, label: "Insira e-mail do usuário" %>
+<%= f.input :group, collection: [@group.group_name], include_blank: false, disabled: true %>
+<%= f.submit "Convidar", class:"btn btn-dark" %>
+<% end %>

@@ -24,16 +24,7 @@
 
       <tbody>
         <% @outcomes.reverse.each do |outcome| %>
-          <%= content_tag :tr, id: dom_id(outcome), class: dom_class(outcome) do %>
-            <td><%= outcome.date %></td>
-            <td><%= outcome.outcome_category %></td>
-            <td><%= outcome.description %></td>
-            <td><%= outcome.value %></td>
-            <td><%= outcome.payment_form %></td>
-            <td><%= outcome.user.name %></td>
-            <td><%= link_to 'Editar', outcome %></td>
-            <td><%= link_to 'Deletar', outcome %></td>
-          <% end %>
+          <%= render partial: 'outcome', locals: {outcome: outcome} %>
         <% end %>
       </tbody>
     </table>
