@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :outcomes
   has_many :incomes
-  has_many :memberships
-  has_many :groups, through: :memberships
+  has_one :membership
+  has_one :group, through: :membership
 end

@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
   def index
-    @groups = Group.all
+    @group = Group.joins(:memberships).where(memberships: { user_id: current_user.id }).first
   end
 
   def new
