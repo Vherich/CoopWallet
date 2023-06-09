@@ -12,7 +12,7 @@ class OutcomesController < ApplicationController
       labels: @outcomes.pluck(:date),
       datasets: [{
         label: 'Saídas (R$)',
-        backgroundColor: ['#ff7883a9', '#ff78c7a9', '#ffb178a9'],
+        backgroundColor: ['#ff7883a9'],
         borderColor: 'black',
         type: 'bar',
         data: @outcomes.pluck(:value)
