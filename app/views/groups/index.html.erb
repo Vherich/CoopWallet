@@ -1,5 +1,9 @@
 <div class="container">
 <h1>Meu Grupo</h1>
+<% if @group.nil? %>
+    <p>Você não possui nenhum grupo =[</p>
+    <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
+  <% else %>
   <div class="card border-light mb-3" style="max-width: 18rem;">
   <div class="card-header"><%= @group.group_name %></div>
   <div class="card-body text-primary">
@@ -7,5 +11,5 @@
     <%= link_to "Ver grupo", group_path(@group.id), class: "btn btn-sm btn-dark me-2" %>
   </div>
   </div>
-  <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
+  <% end %>
 </div>

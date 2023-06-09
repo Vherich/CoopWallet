@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Olá</h1>
+  <h1>Oi</h1>
 
   <div class="row">
   <% if @user.group.nil? %>
     <p>Você não possui nenhum grupo =[</p>
   <% else %>
-        <h3>Esse é resumo do seu <p><%= @user.group.group_name %></p></h3>
+        <h3><%= @user.group.group_name %></h3>
         <div class="d-flex flex-row">
       <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
       <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
