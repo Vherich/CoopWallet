@@ -8,12 +8,17 @@ class MembershipsController < ApplicationController
     @group = Group.find(params[:group_id])
     @membership = Membership.new
     @user = User.find_by(email: membership_params[:user])
-    @membership.group = @group
-    @membership.user = @user
-    if @membership.save
-      redirect_to root_path
+    if @user.group.nil?
+      @membership.group = @group
+      @membership.user = @user
+      if @membership.save
+        redirect_to root_path
+      else
+        flash[:alert] = "Usuário não encontrado"
+        render :new, status: :unprocessable_entity
+      end
     else
-      flash[:alert] = "Usuário não encontrado"
+      flash[:alert] = "Usuário já possui um grupo"
       render :new, status: :unprocessable_entity
     end
   end
