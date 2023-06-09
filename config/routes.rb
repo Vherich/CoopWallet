@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   # resources :outcomes, only: [:show, :destroy]
   resources :outcomes, only: :destroy
   resources :incomes, only: :destroy
-
 end

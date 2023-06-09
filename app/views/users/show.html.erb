@@ -8,7 +8,11 @@
   <% else %>
 
         <h3>Esse é resumo do seu grupo:<p><%= @user.group.group_name %></p></h3>
-  
+        <h4>Usuários:</h4>
+        <% @user.group.memberships.each do |m| %>
+          <p><%= m.user.name %></p>
+        <% end %>
+
         <div class="d-flex flex-row">
       <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
       <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
@@ -41,8 +45,44 @@
         </div>
 
     <div class="row">
-    <%= link_to  "Meu Grupo", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
-    <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+    <%= link_to  "Detalhes", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
+    <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-dark" %>
+    <%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2 mt-3", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
   </div>
+
+  <div class="row">
+
+        <h3>Esse é o seu resumo,<p><%= @user.name %></p></h3>
+
+        <div class="d-flex flex-row">
+      <%= link_to 'Saídas', '#', class: "btn btn-dark"%>
+      <%= link_to 'Entradas', '#', class: "btn btn-dark"%>
+        </div>
+
+      <div class="col-sm-3">
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+          <div class="card-header bg-transparent border-success">Total de Entradas </div>
+          <div class="card-body text-success">
+            <h5 class="card-title">R$</h5>
+          </div>
+          </div>
+        </div>
+      <div class="col-sm-3">
+        <div class="card border-danger mb-3" style="max-width: 18rem;">
+          <div class="card-header bg-transparent border-danger">Total de Saídas </div>
+          <div class="card-body text-danger">
+            <h5 class="card-title">R$</h5>
+          </div>
+          </div>
+        </div>
+      <div class="col-sm-3">
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header bg-transparent border-secondary">Resumo Mensal </div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">R$</h5>
+          </div>
+          </div>
+        </div>
   </div>
+</div>
