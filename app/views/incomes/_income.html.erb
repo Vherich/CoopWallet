@@ -4,11 +4,11 @@
   <td><%= income.description %></td>
   <td><%= income.value %></td>
   <td><%= income.user.name %></td>
-  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#incomeModal">Editar</button></td>
-  <td><%= link_to 'Deletar', root_path %></td>
+  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#incomeModal-<%= income.id %>">Editar</button></td>
+  <td><%=button_to 'Deletar', income_path(income), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" } %></td>
 
 
-  <div class="modal fade" id="incomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="incomeModal-<%= income.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

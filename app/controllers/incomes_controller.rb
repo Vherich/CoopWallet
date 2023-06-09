@@ -46,6 +46,9 @@ class IncomesController < ApplicationController
   end
 
   def destroy
+    @income = Income.find(params[:id])
+    @income.destroy
+    redirect_to group_incomes_path(@income.group), status: :see_other
   end
 
   private
