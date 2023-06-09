@@ -51,12 +51,15 @@ class OutcomesController < ApplicationController
     respond_to do |f|
       f.html
       f.text {
-        render partial: 'outcomes/outcome', locals: {outcome: @outcome}, formats: :html
+        render partial: 'outcomes/outcome', locals: { outcome: @outcome }, formats: :html
       }
     end
   end
 
   def destroy
+    @outcome = Outcome.find(params[:id])
+    @outcome.destroy
+    redirect_to outcome_path, status: :see_other
   end
 
   private

@@ -1,10 +1,10 @@
 <div>
-   <%= simple_form_for [group, outcome], data: {controller: 'expense', action: 'submit->expense#edit', expense_url_value: request.path} do |f|  %>
+  <%= simple_form_for [group, outcome], data: {controller: 'expense', expense_url_value: request.path} do |f|  %>
     <%= f.input :date, label: "Data" %>
     <%= f.input :outcome_category, collection: Outcome::CATEGORY, label: "Categoria" %>
     <%= f.input :description, label: "Descrição" %>
     <%= f.input :value, label: "Valor" %>
     <%= f.input :payment_form, label: "Forma de pagamento" %>
-    <%= f.submit "Salvar", class:"btn btn-primary" %>
-   <% end %>
+    <%= f.submit "Salvar", class:"btn btn-primary", data: {action: 'click->expense#edit'} %>
+  <% end %>
 </div>
