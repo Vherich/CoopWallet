@@ -4,7 +4,8 @@
 
   <div class="row">
   <% if @user.group.nil? %>
-    <p>Você não possui nenhum grupo =[</p>
+    <p>Você não possui nenhum grupo ainda =[</p>
+    <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
   <% else %>
 
         <h3>Esse é resumo do seu grupo:<p><%= @user.group.group_name %></p></h3>
@@ -13,13 +14,7 @@
           <p><%= m.user.name %></p>
         <% end %>
 
-        <div class="d-flex flex-row">
-      <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
-      <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
-        </div>
-    <% end %>
-
-      <div class="col-sm-3">
+<div class="col-sm-3">
         <div class="card border-success mb-3" style="max-width: 18rem;">
           <div class="card-header bg-transparent border-success">Total de Entradas </div>
           <div class="card-body text-success">
@@ -49,11 +44,17 @@
     <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-dark" %>
     <%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2 mt-3", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
+
+        <div class="d-flex flex-row">
+      <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
+      <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
+        </div>
+    <% end %>
   </div>
 
   <div class="row">
 
-        <h3>Esse é o seu resumo,<p><%= @user.name %></p></h3>
+        <h3>Esse é o seu resumo:</h3>
 
         <div class="d-flex flex-row">
       <%= link_to 'Saídas', '#', class: "btn btn-dark"%>
