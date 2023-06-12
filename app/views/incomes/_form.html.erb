@@ -1,9 +1,11 @@
 <div>
-   <%= simple_form_for [@group, Income.new] do |f|  %>
-    <%= f.input :date, label: "Data" %>
-    <%= f.input :income_category,  collection: Income::CATEGORY, label: "Categoria" %>
-    <%= f.input :description, label: "Descrição" %>
-    <%= f.input :value, label: "Valor" %>
-    <%= f.submit "Cadastrar", class:"btn btn-secondary" %>
+   <%= simple_form_for [@group, Income.new], html: {data: {controller: "flatpickr"}} do |f|  %>
+   <div class="row">
+    <div class="col-2"><%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %></div>
+    <div class="col-2"><%= f.input :income_category,  collection: Income::CATEGORY, label: "Categoria" %></div>
+    <div class="col-4"><%= f.input :description, label: "Descrição" %></div>
+    <div class="col-2"><%= f.input :value, label: "Valor" %></div>
+    <%= f.submit "Cadastrar", class:"btn btn-primary col-1 mb-3 mt-4" %>
    <% end %>
+   </div>
 </div>

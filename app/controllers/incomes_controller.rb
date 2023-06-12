@@ -43,6 +43,10 @@ class IncomesController < ApplicationController
   end
 
   def update
+    @income = Income.find(params[:id])
+    @income.update(income_params)
+    redirect_to group_incomes_path(@income.group)
+
   end
 
   def destroy

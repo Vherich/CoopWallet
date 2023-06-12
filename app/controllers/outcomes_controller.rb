@@ -46,10 +46,11 @@ class OutcomesController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:group_id])
     @outcome = Outcome.find(params[:id])
     @outcome.update(outcome_params)
     respond_to do |f|
-      f.html
+      f.html { redirect_to group_incomes_path(@group)}
       f.text {
         render partial: 'outcomes/outcome', locals: { outcome: @outcome }, formats: :html
       }

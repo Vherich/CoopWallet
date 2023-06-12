@@ -1,97 +1,97 @@
-<div class="container">
+<body class="dark-bg">
+  <div class="container">
+    <header>
+      <h1 class="display-4 text-light">Olá, <%= @user.name %></h1>
+    </header>
+    <div class="row mt-4">
+      <% if @user.group.nil? %>
+        <div class="col">
+          <p>Você não possui nenhum grupo ainda =[</p>
+          <%= link_to "Novo Grupo", new_group_path, class: "btn btn-secondary" %>
 
-  <h1>Olá <p><%= @user.name %></p></h1>
+        </div>
+      <% else %>
+        <div class="col-md-6">
+          <h2 class="mb-4 text-light">Esse é o resumo do seu grupo: <%= @user.group.group_name %></h2>
+          <h3 class="text-light"></h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Usuário</th>
+                <th>Entradas</th>
+                <th>Saídas</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.group.memberships.each do |membership| %>
+                <tr>
+                  <td><%= membership.user.name %></td>
+                  <td>R$ <%= membership.user.incomes.sum(:value) %></td>
+                  <td>R$ <%= membership.user.outcomes.sum(:value) %></td>
+                  <td>R$ <%= membership.user.incomes.sum(:value) - membership.user.outcomes.sum(:value) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total:</strong></td>
+                <td><strong>R$ <%= @total_income_per_group %></strong></td>
+                <td><strong>R$ <%= @total_outcome_per_group %></strong></td>
+                <td><strong>R$ <%= @total_income_per_group - @total_outcome_per_group %></strong></td>
+              </tr>
+            </tfoot>
+          </table>
 
-  <div class="row">
-  <% if @user.group.nil? %>
-    <p>Você não possui nenhum grupo ainda =[</p>
-    <%= link_to  "Novo Grupo", new_group_path, class: "btn btn-sm btn-dark me-2" %>
-  <% else %>
-
-        <h3>Esse é resumo do seu grupo:<p><%= @user.group.group_name %></p></h3>
-        <h4>Usuários:</h4>
-        <% @user.group.memberships.each do |m| %>
-          <p><%= m.user.name %></p>
-        <% end %>
-
-        <canvas
-        data-controller="chart"
-        data-chart-data-value="<%= @chart_data.to_json %>"
-        data-chart-options-value="<%= @chart_options.to_json %>"
-        ></canvas>
-        <% sorted_data = @user.group.outcomes.group(:outcome_category).sum(:value).sort_by { |category, value| -value }%>
-        <%= bar_chart sorted_data %>
-
-        <div class="d-flex flex-row">
-      <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
-      <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="total-box bg-danger-light text-danger">
+                <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-danger btn-lg" %>
+                <p class="total-amount">R$ <%= @total_outcome_per_group %></p>
+                <%= link_to 'Ver detalhes', group_outcomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="total-box bg-success-light text-success">
+                <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-success btn-lg" %>
+                <p class="total-amount">R$ <%= @total_income_per_group %></p>
+                <%= link_to 'Ver detalhes', group_incomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="total-box bg-light-light text-light">
+                <%= link_to 'Resultado', '#', class: "btn btn-light btn-lg" %>
+                <p class="total-amount">R$ <%= @total_income_per_group - @total_outcome_per_group %></p>
+                <h2>&#8673;</h2>
+              </div>
+            </div>
+          </div>
         </div>
 
-<div class="col-sm-3">
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-success">Total de Entradas </div>
-          <div class="card-body text-success">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
-        </div>
-      <div class="col-sm-3">
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-danger">Total de Saídas </div>
-          <div class="card-body text-danger">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
-        </div>
-      <div class="col-sm-3">
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-secondary">Resumo Mensal </div>
-          <div class="card-body text-secondary">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
+        <div class="col-md-6">
+          <canvas
+            data-controller="chart"
+            data-chart-data-value="<%= @chart_data.to_json %>"
+            data-chart-options-value="<%= @chart_options.to_json %>"
+          ></canvas>
         </div>
 
-    <div class="row">
-      <%= link_to  "Detalhes", groups_path, class: "btn btn-sm btn-dark me-2 mb-3 col-2" %>
-      <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-dark" %>
-      <%= button_to  "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-sm btn-dark me-2 mt-3", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
-    <% end %>
+    <div class="col-12 mt-4">
+      <% sorted_data = @user.group.outcomes.group(:outcome_category).sum(:value).sort_by { |category, value| -value } %>
+      <%= bar_chart sorted_data, library: { scales: { y: { ticks: { color: '#ffffff' } } } } %>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <%= link_to "Detalhes", groups_path, class: "btn btn-outline-light mb-3" %>
+      </div>
+      <div class="col">
+        <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
+      </div>
+      <div class="col">
+        <%= button_to "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-outline-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    </div>
   </div>
-
-  <div class="row">
-
-        <h3>Esse é o seu resumo:</h3>
-
-        <div class="d-flex flex-row">
-      <%= link_to 'Saídas', '#', class: "btn btn-dark"%>
-      <%= link_to 'Entradas', '#', class: "btn btn-dark"%>
-        </div>
-
-      <div class="col-sm-3">
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-success">Total de Entradas </div>
-          <div class="card-body text-success">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
-        </div>
-      <div class="col-sm-3">
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-danger">Total de Saídas </div>
-          <div class="card-body text-danger">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
-        </div>
-      <div class="col-sm-3">
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <div class="card-header bg-transparent border-secondary">Resumo Mensal </div>
-          <div class="card-body text-secondary">
-            <h5 class="card-title">R$</h5>
-          </div>
-          </div>
-        </div>
-  </div>
-</div>
+  <% end %>
+</body>
