@@ -21,21 +21,4 @@
   <%= link_to 'Entradas','#' , class: "btn btn-dark"%>
 
 </div>
-
-<div class="container mt-5 col-md-10 border border-info">
-  <h1>Meu Grupo</h1>
-
-  <% if @groups.empty? %>
-      <p>Você não está em nenhum grupo</p>
-    <% else %>
-      <% @groups.each do |group| %>
-        <p><%= group.group_name %></p>
-        <p>**TODO chart**</p>
-
-        <%= link_to 'Saídas', group_outcomes_path(group), class: "btn btn-dark"%>
-        <%= link_to 'Entradas', group_incomes_path(group), class: "btn btn-dark"%>
-      <% end %>
-    <% end %>
-
-</div>
 </html>
