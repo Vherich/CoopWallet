@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import Chart from 'stimulus-chartjs'
+application.register('chart', Chart)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
