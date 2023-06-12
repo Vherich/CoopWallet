@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
     if @group.save
       @membership.group = @group
       @membership.user = current_user
+      @membership.accepted = true
       @membership.save
       redirect_to groups_path
     else

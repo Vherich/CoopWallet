@@ -29,7 +29,11 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Minha Conta", user_path(:id), class: "dropdown-item" %>
-              <%= link_to "Meu Grupo", group_path(@group), class: "dropdown-item" %>
+              <% if current_user.group && current_user.membership && current_user.membership.accepted %>
+                <%= link_to "Meu Grupo", group_path(current_user.group), class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "Meu Grupo", groups_path, class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
