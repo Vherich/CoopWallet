@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import ExpenseController from "./expense_controller"
-application.register("expense", ExpenseController)
-
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
