@@ -10,38 +10,32 @@
     <div class="app-info">
         <p>Divida suas contas e despesas com as pessoas que mais importam para você!</p>
     </div>
-
-    <div class="image"></div>
-
-    <div class="input-container">
-        <input type="text" placeholder="Nome" value="Nome">
-        <input type="email" placeholder="E-mail" value="E-mail">
-        <button class="signup-button">Cadastre</button>
-    </div>
 </body>
 
-<canvas
-  data-controller="chart"
-  data-chart-data-value="<%= @chart_data.to_json %>"
-  data-chart-options-value="<%= @chart_options.to_json %>"
-></canvas>
+<div class="container col-md-10 border border-primary">
+  <h1>Meu Resumo</h1>
 
-<div class="container">
-  <h1>Home</h1>
+  <p>**TODO chart**</p>
+
+  <%= link_to 'Saídas','#' , class: "btn btn-dark"%>
+  <%= link_to 'Entradas','#' , class: "btn btn-dark"%>
+
+</div>
+
+<div class="container mt-5 col-md-10 border border-info">
+  <h1>Meu Grupo</h1>
 
   <% if @groups.empty? %>
-    <p>Você não está em nenhum grupo</p>
+      <p>Você não está em nenhum grupo</p>
     <% else %>
-    <% @groups.each do |group| %>
-    <p><%= group.group_name %></p>
-    <%= link_to 'Saídas', group_outcomes_path(group), class: "btn btn-dark"%>
-    <%= link_to 'Entradas', group_incomes_path(group), class: "btn btn-dark"%>
+      <% @groups.each do |group| %>
+        <p><%= group.group_name %></p>
+        <p>**TODO chart**</p>
 
+        <%= link_to 'Saídas', group_outcomes_path(group), class: "btn btn-dark"%>
+        <%= link_to 'Entradas', group_incomes_path(group), class: "btn btn-dark"%>
+      <% end %>
     <% end %>
-
-    <% end %>
-
-
 
 </div>
 </html>
