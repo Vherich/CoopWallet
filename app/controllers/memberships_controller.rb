@@ -1,4 +1,6 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @group = Group.find(params[:group_id])
     @membership = Membership.new
@@ -27,6 +29,22 @@ class MembershipsController < ApplicationController
     @membership = Membership.find_by(user: current_user)
     @membership.destroy
     redirect_to groups_path
+  end
+
+  def invites
+    @memberships = Membership.where(accepted: false, user: current_user)
+  end
+
+  def update
+    @membership = Membership.find(params[:id])
+    @membership.update_attribute("accepted", true)
+    redirect_to group_path(@membership.group)
+  end
+
+  def deny
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+    redirect_to invites_memberships_path
   end
 
   private
