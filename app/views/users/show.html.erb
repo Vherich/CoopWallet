@@ -24,7 +24,7 @@
 
         <div class="d-flex flex-row">
       <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
-      <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
+      <%= link_to  'Entradas', group_incomes_path(@user.group), class: "btn btn-dark", data: {turbo: "false"}%>
         </div>
 
 <div class="col-sm-3">
