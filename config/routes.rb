@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups do
-    resources :incomes
+    resources :incomes, only: [:new, :create, :index]
     # resources :outcomes, except: :show
     resources :outcomes
     resources :memberships, except: :update
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # resources :outcomes, only: [:show, :destroy]
   resources :outcomes, only: :destroy
-  resources :incomes, only: :destroy
+  resources :incomes, only: [:edit, :update, :destroy]
 
   resources :memberships, only: :update do
     collection do
