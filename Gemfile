@@ -78,3 +78,5 @@ group :test do
 end
 
 gem "faker"
+gem "chartkick"
+gem "groupdate"

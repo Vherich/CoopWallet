@@ -31,11 +31,7 @@
       <% @groups.each do |group| %>
         <p><%= group.group_name %></p>
         <p>**TODO chart**</p>
-        <canvas
-        data-controller="chart"
-        data-chart-data-value="<%= @chart_data.to_json %>"
-        data-chart-options-value="<%= @chart_options.to_json %>"
-        ></canvas>
+
         <%= link_to 'Saídas', group_outcomes_path(group), class: "btn btn-dark"%>
         <%= link_to 'Entradas', group_incomes_path(group), class: "btn btn-dark"%>
       <% end %>

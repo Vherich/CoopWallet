@@ -14,6 +14,14 @@
           <p><%= m.user.name %></p>
         <% end %>
 
+        <canvas
+        data-controller="chart"
+        data-chart-data-value="<%= @chart_data.to_json %>"
+        data-chart-options-value="<%= @chart_options.to_json %>"
+        ></canvas>
+        <% sorted_data = @user.group.outcomes.group(:outcome_category).sum(:value).sort_by { |category, value| -value }%>
+        <%= bar_chart sorted_data %>
+
         <div class="d-flex flex-row">
       <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-dark"%>
       <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-dark"%>
