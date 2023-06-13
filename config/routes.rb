@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :outcomes
     resources :memberships, except: :update
   end
-  resources :users
+  resources :users do
+    member do
+      get "profile"
+    end
+  end
 
   # resources :outcomes, only: [:show, :destroy]
   resources :outcomes, only: :destroy
