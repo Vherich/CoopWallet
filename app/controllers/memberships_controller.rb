@@ -28,7 +28,7 @@ class MembershipsController < ApplicationController
   def destroy
     @membership = Membership.find_by(user: current_user)
     @membership.destroy
-    redirect_to groups_path
+    redirect_to users_path
   end
 
   def invites
