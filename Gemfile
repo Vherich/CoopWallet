@@ -80,3 +80,4 @@ end
 gem "faker"
 gem "chartkick"
 gem "groupdate"
+gem "i18n"

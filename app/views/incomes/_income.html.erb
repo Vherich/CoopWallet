@@ -1,27 +1,34 @@
 <%= content_tag :tr, id: dom_id(income), class: dom_class(income) do %>
   <div class="container text-center">
-    <td><%= income.date %></td></div>
-    <td><%= income.income_category %></td>
-    <td><%= income.description %></td>
-    <td><%= income.value %></td>
-    <td><%= income.user.name %></td>
-  </div>
-  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#incomeModal-<%= income.id %>">Editar</button></td>
-  <td><%=button_to 'Deletar', income_path(income), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" } %></td>
-<% end %>
+      <td class="text-center"><%= l income.date, format: "%a, %d de %b" %></td>
+      <td class="text-center"><%= income.income_category %></td>
+      <td class="text-center"><%= income.description %></td>
+      <td class="text-center">R$ <%= income.value %></td>
+      <td class="text-center"><%= income.user.name %></td>
 
-<div class="modal fade" id="incomeModal-<%= income.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" >
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Editar</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render partial: 'edit', locals: {income: income} %>
+      <td>
+        <div class="d-flex align-itens-center justify-content-around px-3">
+          <button type="button" class="btn btn-primary btn-sm w-25" data-bs-toggle="modal" data-bs-target="#incomeModal-<%= income.id %>"><i class="fa-regular fa-pen-to-square"></i></button>
+          <%= button_to income_path(income), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" },class:"btn btn-danger w-100" do %>
+          <i class="fa-regular fa-trash-can" style="color: white;"></i>
+          <% end %>
+        </div>
+      </td>
+  <div>
+
+  <div class="modal fade" id="incomeModal-<%= income.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render partial: 'edit', locals: {income: income} %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

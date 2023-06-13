@@ -1,12 +1,17 @@
 <%= content_tag :tr, id: dom_id(outcome), class: dom_class(outcome) do %>
-  <td><%= outcome.date %></td>
-  <td><%= outcome.outcome_category %></td>
-  <td><%= outcome.description %></td>
-  <td><%= outcome.value %></td>
-  <td><%= outcome.payment_form %></td>
-  <td><%= outcome.user.name %></td>
-  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#outcomeModal-<%= outcome.id %>">Editar</button></td>
-  <td><%=button_to 'Deletar', outcome_path(outcome), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" } %></td>
+  <td class="text-center"><%= l outcome.date, format:  "%a, %d de %b" %></td>
+  <td class="text-center"><%= outcome.outcome_category %></td>
+  <td class="text-center"><%= outcome.description.truncate(25) %></td>
+  <td class="text-center">R$ <%= outcome.value %> <span class="badge text-bg-warning"><%= outcome.payment_form %></span></td>
+  <td class="text-center"><%= outcome.user.name %></td>
+  <td>
+    <div class="d-flex align-itens-center justify-content-around">
+      <button type="button" class="btn btn-primary btn-sm w-25" data-bs-toggle="modal" data-bs-target="#outcomeModal-<%= outcome.id %>"><i class="fa-regular fa-pen-to-square"></i></button>
+      <%=button_to outcome_path(outcome), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger btn-sm w-100" do %>
+      <i class="fa-regular fa-trash-can"  style="color: white;"></i>
+      <% end %>
+    </div>
+  </td>
 
 
   <div class="modal fade" id="outcomeModal-<%= outcome.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
