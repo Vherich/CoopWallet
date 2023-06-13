@@ -1,15 +1,15 @@
 <div class="container">
   <h1>Saídas</h1>
 
-  <canvas
+  <canvas class='total-box'
   data-controller="chart"
   data-chart-data-value="<%= @chart_data.to_json %>"
   data-chart-options-value="<%= @chart_options.to_json %>"
 ></canvas>
 
-  <%= render partial: 'form' %>
+  <div class='total-box mt-4'><%= render partial: 'form' %></div>
 
-  <div class="table-responsive">
+  <div class="table-responsive mt-4">
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>

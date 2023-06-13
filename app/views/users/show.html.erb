@@ -1,99 +1,115 @@
-<body class="dark-bg">
-  <div class="container">
-    <header>
-      <h1 class="display-4 text-light">Olá, <%= @user.name %></h1>
-    </header>
-    <div class="row mt-4">
-      <% if @user.group.nil? %>
-        <div class="col">
-          <h4>Você não possui nenhum grupo ainda, comece aqui e chame quem você quiser ou aceite seu convite!</h4>
-          <p class="green-text">(Todos os seus dados serão mantidos ao sair e entrar em grupos)</p>
-          <%= simple_form_for Group.new do |f| %>
-            <%= f.input :group_name, label: "Nome do Grupo" %>
-            <%= f.submit "Criar Grupo", class:"btn btn-success btn-lg" %>
-            <%= link_to 'Convites', invites_memberships_path, class: "btn btn-light btn-lg"%>
-          <% end %>
+<div class="container">
+  <header>
+    <h1 class="display-4 text-light mt-4">Olá, <%= @user.name %></h1>
+  </header>
 
-        </div>
-      <% else %>
-        <div class="col-md-6">
-          <h2 class="mb-4 text-light">Esse é o resumo do seu grupo: <%= @user.group.group_name %></h2>
-          <h3 class="text-light"></h3>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Usuário</th>
-                <th>Entradas</th>
-                <th>Saídas</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @user.group.memberships.each do |membership| %>
-                <tr>
-                  <td><%= membership.user.name %></td>
-                  <td>R$ <%= membership.user.incomes.sum(:value) %></td>
-                  <td>R$ <%= membership.user.outcomes.sum(:value) %></td>
-                  <td>R$ <%= membership.user.incomes.sum(:value) - membership.user.outcomes.sum(:value) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td><strong>Total:</strong></td>
-                <td><strong>R$ <%= @total_income_per_group %></strong></td>
-                <td><strong>R$ <%= @total_outcome_per_group %></strong></td>
-                <td><strong>R$ <%= @total_income_per_group - @total_outcome_per_group %></strong></td>
-              </tr>
-            </tfoot>
-          </table>
+  <div class="row mt-4">
+    <% if @user.group.nil? %>
+      <div class="total-box col">
+        <h4>Você não possui nenhum grupo ainda, comece aqui e chame quem você quiser ou aceite seu convite!</h4>
+        <p class="green-text">(Todos os seus dados serão mantidos ao sair e entrar em grupos)</p>
+        <%= simple_form_for Group.new do |f| %>
+          <%= f.input :group_name, label: "Nome do Grupo" %>
+          <%= f.submit "Criar Grupo", class:"btn btn-success btn-lg" %>
+          <%= link_to 'Convites', invites_memberships_path, class: "btn btn-light btn-lg"%>
+        <% end %>
 
-          <div class="row mt-4">
-            <div class="col">
-              <div class="total-box bg-danger-light text-danger">
-                <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-danger btn-lg" %>
-                <p class="total-amount">R$ <%= @total_outcome_per_group %></p>
-                <%= link_to 'Ver detalhes', group_outcomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
-              </div>
+      </div>
+    <% else %>
+      <div class="col-md-6">
+        <h2 class="mb-4 text-light">Esse é o resumo do seu grupo: <%= @user.group.group_name %></h2>
+        <h3 class="text-light"></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Usuário</th>
+              <th>Entradas</th>
+              <th>Saídas</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_data.each do |user| %>
+              <tr>
+                <td><%= user[:name] %></td>
+                <td>R$ <%= user[:incomes] %></td>
+                <td>R$ <%= user[:outcomes] %></td>
+                <td>R$ <%= user[:total] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>Total:</strong></td>
+              <td><strong>R$ <%= @total_income_per_group %></strong></td>
+              <td><strong>R$ <%= @total_outcome_per_group %></strong></td>
+              <td><strong>R$ <%= @total_income_per_group - @total_outcome_per_group %></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="row mt-4">
+          <div class="col">
+            <div class="total-box bg-danger-light text-danger">
+              <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-danger btn-lg" %>
+              <p class="total-amount">R$ <%= @total_outcome_per_group %></p>
+              <%= link_to 'Ver detalhes', group_outcomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
             </div>
-            <div class="col">
-              <div class="total-box bg-success-light text-success">
-                <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-success btn-lg" %>
-                <p class="total-amount">R$ <%= @total_income_per_group %></p>
-                <%= link_to 'Ver detalhes', group_incomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
-              </div>
+          </div>
+          <div class="col">
+            <div class="total-box bg-success-light text-success">
+              <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-success btn-lg" %>
+              <p class="total-amount">R$ <%= @total_income_per_group %></p>
+              <%= link_to 'Ver detalhes', group_incomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
             </div>
-            <div class="col">
-              <div class="total-box bg-light-light text-light">
-                <%= link_to 'Resultado', '#', class: "btn btn-light btn-lg" %>
-                <p class="total-amount">R$ <%= @total_income_per_group - @total_outcome_per_group %></p>
-                <h2>ㅤ</h2>
-              </div>
+          </div>
+          <div class="col">
+            <div class="total-box bg-light-light text-light">
+              <%= link_to 'Resultado', '#', class: "btn btn-light btn-lg" %>
+              <p class="total-amount">R$ <%= @total_income_per_group - @total_outcome_per_group %></p>
+              <h2>ㅤ</h2>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-md-6">
+      <div class='col-md-6'>
+        <div class="total-box">
+          <div class="w-100">
+            <%= simple_form_for :filter, url: user_path(current_user), method: :get do |f| %>
+            <div class="row">
+              <% month = params.dig(:filter, :month) || Date.today.month %>
+              <% year = params.dig(:filter, :year) || Date.today.year %>
+              <div class="col-6">
+                <%= f.input :month,  collection: MONTHS_NAMES, label: "Mês", label_method: :second, value_method: :first, selected: month %>
+              </div>
+              <div class="col-6">
+                <%= f.input :year,  collection: (2020..2040).to_a, label: "Ano", selected: year %>
+              </div>
+            </div>
+              <%= f.submit %>
+            <% end %>
+          </div>
           <canvas
             data-controller="chart"
             data-chart-data-value="<%= @chart_data.to_json %>"
             data-chart-options-value="<%= @chart_options.to_json %>"
           ></canvas>
         </div>
-
-    </div>
-    <div class="col-12 mt-4">
-      <% sorted_data = @user.group.outcomes.group(:outcome_category).sum(:value).sort_by { |category, value| -value } %>
-      <%= bar_chart sorted_data, library: { scales: { y: { ticks: { color: '#ffffff' } } } } %>
+      </div>
+    <% end %>
+  </div>
+  <% unless @user.group.nil? %>
+    <div class="total-box col-12 mt-4">
+      <%= bar_chart @sorted_data, library: { scales: { y: { ticks: { color: '#ffffff' } } } } %>
     </div>
     <div class="row mt-4">
       <div class="col">
         <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
       </div>
-      <div class="col">
+      <div class="col-flex">
         <%= button_to "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-outline-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
-  </div>
   <% end %>
-</body>
+</div>
