@@ -16,7 +16,7 @@ class UsersController < ApplicationController
           borderColor: ['green', 'red'],
           type: 'pie',
           data: [@total_income_per_group, @total_outcome_per_group]
-        }],
+        }]
       }
 
       @chart_options = {
