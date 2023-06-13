@@ -1,4 +1,4 @@
-<div>
+<div class="table-form">
    <%= simple_form_for [@group, Outcome.new], data: { controller: 'flatpickr' } do |f|  %>
    <div class="row">
       <div class="col-2"><%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %></div>
