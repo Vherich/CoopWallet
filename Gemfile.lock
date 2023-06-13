@@ -264,6 +264,7 @@ DEPENDENCIES
   faker
   font-awesome-sass (~> 6.1)
   groupdate
+  i18n
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

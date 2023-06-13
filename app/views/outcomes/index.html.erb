@@ -1,11 +1,13 @@
 <div class="container">
-  <h1>Saídas</h1>
+  <div class="text-center mt-3 mb-3">
+    <h1>Saídas</h1>
+  </div>
 
   <canvas class='total-box'
   data-controller="chart"
   data-chart-data-value="<%= @chart_data.to_json %>"
-  data-chart-options-value="<%= @chart_options.to_json %>"
-></canvas>
+  data-chart-options-value="<%= @chart_options.to_json %>">
+  </canvas>
 
   <div class='total-box mt-4'><%= render partial: 'form' %></div>
 
@@ -13,12 +15,12 @@
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th>Data</th>
-          <th>Categoria</th>
-          <th>Descrição</th>
-          <th>Valor</th>
-          <th>Forma de Pagamento</th>
-          <th>Usuário</th>
+          <th class="text-center" style="width: 150px">Data</th>
+          <th class="text-center">Categoria</th>
+          <th class="text-center">Descrição</th>
+          <th class="text-center" style="width: 150px">Valor</th>
+          <th class="text-center">Usuário</th>
+          <th class="text-center" style="width: 150px">Ações</th>
         </tr>
       </thead>
 
