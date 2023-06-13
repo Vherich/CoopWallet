@@ -6,8 +6,13 @@
     <div class="row mt-4">
       <% if @user.group.nil? %>
         <div class="col">
-          <p>Você não possui nenhum grupo ainda =[</p>
-          <%= link_to "Novo Grupo", new_group_path, class: "btn btn-secondary" %>
+          <h4>Você não possui nenhum grupo ainda, comece aqui e chame quem você quiser ou aceite seu convite!</h4>
+          <p class="green-text">(Todos os seus dados serão mantidos ao sair e entrar em grupos)</p>
+          <%= simple_form_for Group.new do |f| %>
+            <%= f.input :group_name, label: "Nome do Grupo" %>
+            <%= f.submit "Criar Grupo", class:"btn btn-success btn-lg" %>
+            <%= link_to 'Convites', invites_memberships_path, class: "btn btn-light btn-lg"%>
+          <% end %>
 
         </div>
       <% else %>
@@ -82,9 +87,6 @@
       <%= bar_chart sorted_data, library: { scales: { y: { ticks: { color: '#ffffff' } } } } %>
     </div>
     <div class="row mt-4">
-      <div class="col">
-        <%= link_to "Detalhes", groups_path, class: "btn btn-outline-light mb-3" %>
-      </div>
       <div class="col">
         <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
       </div>

@@ -1,5 +1,7 @@
 <div class="container">
+<div class="text-center mt-3 mb-3">
   <h1>Entradas</h1>
+</div>
 
   <canvas
   data-controller="chart"
@@ -10,14 +12,16 @@
   <%= render partial: 'form' %>
 
   <div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-hover">
       <thead>
         <tr>
-          <th>Data</th>
-          <th>Categoria</th>
-          <th>Descrição</th>
-          <th>Valor</th>
-          <th>Usuário</th>
+          <th class="text-center" style="width: 150px">Data</th>
+          <th class="text-center" style="width: 100px">Categoria</th>
+          <th class="text-center">Descrição</th>
+          <th class="text-center" style="width: 150px">Valor</th>
+          <th class="text-center" style="width: 100px">Usuário</th>
+          <th class="text-center" style="width: 200px">Ações</th>
+
         </tr>
       </thead>
 

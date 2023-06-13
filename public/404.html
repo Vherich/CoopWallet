@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>(404) Página não encontrada </title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: white;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -23,9 +24,10 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #278664 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
+    border-radius: 4px;
     background-color: white;
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
@@ -33,7 +35,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #278664;
     line-height: 1.5em;
   }
 
@@ -47,10 +49,56 @@
     border-bottom-color: #999;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    border-radius: 5%;
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .image {
+    height: 300px;
+    border-radius: 5%;
+    margin-top: 10px;
+  }
+
+  .button-24 {
+    background: #1EDD88;
+    border: 1px solid #1EDD88;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+
+  .button-24:hover,
+  .button-24:active {
+    background-color: #40e29a;
+    background-position: 0 0;
+    color: black;
+  }
+
+  .button-24:active {
+    opacity: 0;
+  }
+
   </style>
 </head>
 
@@ -58,10 +106,12 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1>Ooops... Página não encontrada (404)</h1>
+      <p>Vamos fingir que isso não aconteceu 🫣</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <img class="image" src="error.gif" alt="404_error">
+
   </div>
+  <a class="button-24" href="https://www.coopwallet.one">Voltar para Home</a>
 </body>
 </html>

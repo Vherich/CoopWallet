@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
       @membership.user = current_user
       @membership.accepted = true
       @membership.save
-      redirect_to groups_path
+      redirect_to users_path
     else
       render :new, status: :unprocessable_entity
     end
