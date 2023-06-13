@@ -6,8 +6,12 @@
     <div class="row mt-4">
       <% if @user.group.nil? %>
         <div class="col">
-          <p>Você não possui nenhum grupo ainda =[</p>
-          <%= link_to "Novo Grupo", new_group_path, class: "btn btn-secondary" %>
+          <p>Você não possui nenhum grupo ainda, comece aqui e chame quem você quiser ou aceite seu convite!</p>
+          <%= simple_form_for Group.new do |f| %>
+            <%= f.input :group_name, label: "Nome do Grupo" %>
+            <%= f.submit "Criar Grupo", class:"btn btn-success btn-lg" %>
+            <%= link_to 'Convites', invites_memberships_path, class: "btn btn-light btn-lg"%>
+          <% end %>
 
         </div>
       <% else %>
