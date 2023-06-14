@@ -7,7 +7,7 @@
     <% if @user.group.nil? %>
       <div class="total-box col">
         <h4>Você não possui nenhum grupo ainda, comece aqui e chame quem você quiser ou aceite seu convite!</h4>
-        <p class="green-text">(Todos os seus dados serão mantidos ao sair e entrar em grupos)</p>
+        <p class="green-text">(Todos os seus dados serão mantidos ao sair e entrar em grupos, mas o grupo apenas verá o que você adicionou enquanto estava nele.)</p>
         <%= simple_form_for Group.new do |f| %>
           <%= f.input :group_name, label: "Nome do Grupo" %>
           <%= f.submit "Criar Grupo", class:"btn btn-success btn-lg" %>
@@ -84,10 +84,10 @@
                 <%= f.input :month,  collection: MONTHS_NAMES, label: "Mês", label_method: :second, value_method: :first, selected: month %>
               </div>
               <div class="col-6">
-                <%= f.input :year,  collection: (2020..2040).to_a, label: "Ano", selected: year %>
+                <%= f.input :year,  collection: (2020..2030).to_a, label: "Ano", selected: year %>
               </div>
             </div>
-              <%= f.submit %>
+              <div><%= f.submit %></div>
             <% end %>
           </div>
           <canvas

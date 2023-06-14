@@ -20,6 +20,16 @@
           </li>
           <li class="nav-item">
 
+            <%= link_to "Entradas",  group_outcomes_path(@user.group), class: "nav-link" %>
+
+          </li>
+          <li class="nav-item">
+
+            <%= link_to "Saídas",  group_outcomes_path(@user.group), class: "nav-link" %>
+
+          </li>
+          <li class="nav-item">
+
             <%= link_to "Convites", invites_memberships_path, class: "nav-link" %>
 
           </li>
