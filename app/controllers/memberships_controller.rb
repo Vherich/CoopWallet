@@ -11,7 +11,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
     @user = User.find_by(email: membership_params[:user])
     if @user.group.nil?
-      @membership.group = @group
+      @membership.group_reference = @group.id
       @membership.user = @user
       if @membership.save
         redirect_to root_path
@@ -38,7 +38,9 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
     @membership.update_attribute("accepted", true)
-    redirect_to group_path(@membership.group)
+    @membership.group = Group.find(@membership.group_reference)
+    @membership.save
+    redirect_to user_path(@membership.user)
   end
 
   def deny

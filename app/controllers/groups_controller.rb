@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
     @group = Group.new(params.require(:group).permit(:group_name))
     @membership = Membership.new
     if @group.save
+      @membership.group_reference = @group.id
       @membership.group = @group
       @membership.user = current_user
       @membership.accepted = true
