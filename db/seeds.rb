@@ -26,7 +26,7 @@ users.each do |user|
                   value: Faker::Commerce.price(range: (100..2000)),
                   description: Faker::Commerce.product_name,
                   user:,
-                  group: [groups.sample, nil].sample)
+                  group: user.group)
   end
   rand(5..10).times do
     Outcome.create(date: Faker::Date.between(from: '2020-01-01', to: '2020-12-31'),
@@ -35,6 +35,6 @@ users.each do |user|
                    description: Faker::Commerce.product_name,
                    payment_form: ["Cash", "Credit card", "Bank transfer", "Paypal"].sample,
                    user:,
-                   group: [groups.sample, nil].sample)
+                   group: user.group)
   end
 end

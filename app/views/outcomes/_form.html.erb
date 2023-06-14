@@ -1,12 +1,12 @@
-<div class="table-form">
+<div class="total-box mt-4">
    <%= simple_form_for [@group, Outcome.new], data: { controller: 'flatpickr' } do |f|  %>
    <div class="row">
-      <div class="col-2"><%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %></div>
+      <div class="col-2"><%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } }, label:'Data' %></div>
       <div class="col-2"><%= f.input :outcome_category, collection: Outcome::CATEGORY, label: "Categoria" %></div>
       <div class="col-3"><%= f.input :description, label: "Descrição" %></div>
-      <div class="col-2"><%= f.input :value, label: "Valor" %></div>
+      <div class="col-2"><%= f.input :value, label: "Valor (R$)" %></div>
       <div class="col-3"><%= f.input :payment_form, label: "Forma de pagamento" %></div>
-      <%= f.submit "Cadastrar", class:"btn btn-secondary mb-4 col-3" %>
+      <div class="center mt-2"><%= f.submit "Adicionar Saída", class:"btn btn-danger btn-lg" %></div>
     <% end %>
    </div>
 </div>
