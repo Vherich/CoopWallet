@@ -1,6 +1,6 @@
 <div class="container">
   <div class="mt-3 mb-3">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Editar Perfil</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -13,28 +13,30 @@
         <% end %>
 
         <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
+                    hint: "deixe em branco se não quiser mudar",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
+                    hint: "sua senha atual é necessária para confirmar as mudanças",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.button :submit, "Atualizar", class: "btn btn-light btn-lg" %>
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <div class="mt-5">
+    <h3>Apagar conta?</h3>
+    </div>
 
-    <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+    <div class="mt-4">Deseja apagar todos os seus dados? <%= button_to "Apagar minha conta", registration_path(resource_name), class: "btn btn-info btn-sm mt-5", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-      <%= link_to "Back", :back %>
+      <%= link_to "Voltar", :back, class: "btn btn-light btn-sm mt-4"  %>
     </div>
   </div>
 </div>

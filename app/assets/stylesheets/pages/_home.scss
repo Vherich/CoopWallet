@@ -1,6 +1,10 @@
 body {
   background-color: #1b1b1b;
   color: #ffffff;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
 }
 
 .green-text {
@@ -8,165 +12,181 @@ body {
 }
 
 /* Navbar */
-    .navbar {
-        width: 100%;
-        height: 60px;
-        background-color: #278664;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-    }
-
-    .nav-link {
-      border:2px solid #000000;
-      border-radius: 5px;
-      padding: 7px;
-      margin-right: 15px;
-      background-color: #1b1b1bcb;
-    }
-
-    .nav-link:hover {
-      border:2px solid #000000;
-      border-radius: 5px;
-      padding: 7px;
-      margin-right: 15px;
-      background-color: #1b1b1bcb;
-      color: #b1b1b1
-    }
-
-    .navbar img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-
-    /* Banner */
-    .banner {
-        width: 100%;
-        height: 200px;
-        background-color: #e8e8e8;
-    }
-
-    /* Info do app */
-    .app-info {
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        font-size: 18px;
-    }
-
-    /* Estilos p/ imagem */
-    .image {
-        width: 100%;
-        height: 300px;
-        background-image: url('caminho/para/imagem.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* Estilos para os buttons */
-    .buttons {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .buttons button {
-        padding: 10px 20px;
-        margin: 0 10px;
-        font-size: 16px;
-    }
-
-    .dark-bg {
-      background-color: #1b1b1b; /* Cor de fundo escura */
-      color: #ffffff; /* Cor do texto clara */
-    }
-
-    .total-box {
-      padding: 20px;
-      border-radius: 5px;
-      background-color: #272727;
-      text-align: center;
-      border: 2px solid #6d6d6da9;
-      height: 100%;
-    }
-
-    .total-amount {
-      margin-top: 10px;
-      font-size: 24px;
-    }
-
-    .table {
-      color: #ffffff;
-    }
-
-    .table th {
-      background-color: #4444449a;
-      color: #ffffff;
-    }
-
-    .table td {
-      border-color: #1b1b1b9a;
-    }
-
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: rgb(0, 0, 0)
-    }
-
-    .banner {
-      background-size: cover;
-      background-position: center;
-      padding: 150px 0;
-    }
-
-    .banner h1 {
-      margin: 0;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .banner p {
-      font-size: 20px;
-      color: white;
-      opacity: .7;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-
-    .btn-flat {
-      color: white;
-      padding: 8px 24px;
-      border-radius: 4px;
-      background: #1EDD88;
-      transition: background 0.3s ease;
-    }
-
-    .btn-flat:hover {
-      background: #40e29a;
-      color: white;
-    }
-
-    .card {
-      width: 200px;
-      border-radius: 3px;
-      box-shadow: 0 0 5px rgb(230,230,230);
-      text-align: center;
-      padding: 20px;
-      border: 1px solid rgb(230,230,230);
-  }
-
-  .cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #278664;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
-  .container {
-    width: auto;
-    margin: auto;
-  }
+.nav-link {
+  padding: 7px;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  border-radius: 15px;
+  padding: 7px;
+  margin-right: 15px;
+  background-color: #1b1b1bcb;
+  color: #ffffff
+}
+
+.navbar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 200px;
+  background-color: #e8e8e8;
+}
+
+/* Info do app */
+.app-info {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+/* Estilos p/ imagem */
+.image {
+  width: 100%;
+  height: 300px;
+  background-image: url('caminho/para/imagem.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Estilos para os buttons */
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.dark-bg {
+  background-color: #1b1b1b; /* Cor de fundo escura */
+  color: #ffffff; /* Cor do texto clara */
+}
+
+.total-box {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #272727;
+  text-align: center;
+  border: 2px solid #6d6d6da9;
+  height: 100%;
+}
+
+.total-amount {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.table {
+  color: #ffffff;
+}
+
+.table th {
+  background-color: #4444449a;
+  color: #ffffff;
+}
+
+.table td {
+  border-color: #1b1b1b9a;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgb(0, 0, 0)
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-flat:hover {
+  background: #40e29a;
+  color: white;
+  text-decoration: none;
+}
+
+.card {
+  width: 200px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  padding-right: 100px;
+  padding-left: 100px;
+  width: 80vw;
+}
+
+.container {
+  width: auto;
+  margin: auto;
+}
+
+.btn{
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.form-text{
+  color: rgb(255, 255, 255);
+}
