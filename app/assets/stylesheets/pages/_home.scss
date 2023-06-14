@@ -161,6 +161,8 @@ body {
   text-align: center;
   padding: 20px;
   border: 1px solid rgb(230,230,230);
+  margin-right: 60px;
+  margin-bottom: 40px;
 }
 
 .cards {
@@ -168,9 +170,7 @@ body {
   justify-content: space-between;
   margin-bottom: 30px;
   flex-wrap: wrap;
-  padding-right: 100px;
   padding-left: 100px;
-  width: 80vw;
 }
 
 .container {
