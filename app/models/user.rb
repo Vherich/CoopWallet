@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :outcomes
   has_many :incomes
   has_one :membership
-  has_one :group, through: :membership
+  has_one :group, through: :membership, foreign_key: "group_id"
 end
