@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-    <%= link_to user_path(current_user), class: "navbar-brand" do %>
+    <%= link_to '#', class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
@@ -14,7 +14,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <% if current_user == nil %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% else %>
           <li class="nav-item active">
             <%= link_to "Visão Geral", user_path(current_user), class: "nav-link" %>
           </li>
@@ -42,10 +46,6 @@
               <%= link_to "Convites", invites_memberships_path, class: "dropdown-item" %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
