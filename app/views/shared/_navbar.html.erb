@@ -7,7 +7,7 @@
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <h1 class="nav-text"><strong>CoopWallet</strong></h1>
+    <h1 class="nav-text allign-left"><strong>CoopWallet</strong></h1>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,8 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-        <% else %>
+        <% end %>
+        <% unless current_user == nil || current_user.group == nil %>
           <li class="nav-item active">
             <%= link_to "Visão Geral", user_path(current_user), class: "nav-link" %>
           </li>
@@ -41,11 +42,10 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <%= image_tag "https://img.icons8.com/ios-filled/50/automatic.png", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Convites", invites_memberships_path, class: "dropdown-item" %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
