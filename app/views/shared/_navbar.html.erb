@@ -20,12 +20,12 @@
           </li>
           <li class="nav-item">
 
-            <%= link_to "Entradas",  group_outcomes_path(@user.group), class: "nav-link" %>
+            <%= link_to "Entradas",  group_incomes_path(current_user.group), class: "nav-link" %>
 
           </li>
           <li class="nav-item">
 
-            <%= link_to "Saídas",  group_outcomes_path(@user.group), class: "nav-link" %>
+            <%= link_to "Saídas",  group_outcomes_path(current_user.group), class: "nav-link" %>
 
           </li>
           <li class="nav-item">
