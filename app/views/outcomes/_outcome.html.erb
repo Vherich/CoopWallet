@@ -2,7 +2,11 @@
   <td class="text-center"><%= l outcome.date, format:  "%a, %d de %b" %></td>
   <td class="text-center"><%= outcome.outcome_category %></td>
   <td class="text-center"><%= outcome.description.truncate(25) %></td>
-  <td class="text-center">R$ <%= outcome.value %> <span class="badge text-bg-warning"><%= outcome.payment_form %></span></td>
+  <td class="text-center">R$ <%= outcome.value %>
+    <div>
+      <span class="badge text-bg-warning"><%= outcome.payment_form %></span>
+    </div>
+  </td>
   <td class="text-center"><%= outcome.user.name %></td>
   <td>
     <div class="d-flex align-itens-center justify-content-around">
