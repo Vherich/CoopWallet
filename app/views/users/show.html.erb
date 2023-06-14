@@ -37,15 +37,16 @@
                 <td>R$ <%= user[:total] %></td>
               </tr>
             <% end %>
-          </tbody>
-          <tfoot>
+
+
             <tr>
               <td><strong>Total:</strong></td>
               <td><strong>R$ <%= @total_income_per_group %></strong></td>
               <td><strong>R$ <%= @total_outcome_per_group %></strong></td>
               <td><strong>R$ <%= @total_income_per_group - @total_outcome_per_group %></strong></td>
             </tr>
-          </tfoot>
+
+          </tbody>
         </table>
 
         <div class="row mt-4">
