@@ -1,8 +1,17 @@
 <%= simple_form_for outcome do |f|  %>
-  <%= f.input :date, label: "Data" %>
-  <%= f.input :outcome_category, collection: Outcome::CATEGORY, label: "Categoria" %>
-  <%= f.input :description, label: "Descrição" %>
-  <%= f.input :value, label: "Valor" %>
-  <%= f.input :payment_form, label: "Forma de pagamento" %>
-  <%= f.submit "Salvar", class:"btn btn-primary" %>
+  <div class="row">
+    <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } }, label: "Data", wrapper_html: { data: { controller: "flatpickr"}} %>
+    <%= f.input :outcome_category, collection: Outcome::CATEGORY, label: "Categoria" %>
+    <%= f.input :description, label: "Descrição" %>
+    <div class="col-6">
+      <%= f.input :value, label: "Valor" %>
+    </div>
+    <div class="col-6">
+      <%= f.input :payment_form, label: "Pagamento" %>
+    </div>
+  </div>
+
+  <div class="my-4 text-end">
+    <%= f.submit "Salvar", class:"btn btn-primary" %>
+  </div>
 <% end %>
