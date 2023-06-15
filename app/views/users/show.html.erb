@@ -104,10 +104,10 @@
       <%= bar_chart @sorted_data, library: { scales: { y: { ticks: { color: '#ffffff' } } } } %>
     </div>
     <div class="row mt-4">
-      <div class="col">
+      <div class="col-2">
         <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
       </div>
-      <div class="col-flex">
+      <div class="col-3">
         <%= button_to "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-outline-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>

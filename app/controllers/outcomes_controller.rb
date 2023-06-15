@@ -2,7 +2,7 @@ class OutcomesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @outcome = Outcomes.new
+    @outcome = Outcome.new
   end
 
   def index

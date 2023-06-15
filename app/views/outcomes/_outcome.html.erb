@@ -1,8 +1,8 @@
 <%= content_tag :tr, id: dom_id(outcome), class: dom_class(outcome) do %>
-  <td class="text-center"><%= l outcome.date, format:  "%a, %d de %b" %></td>
-  <td class="text-center"><%= outcome.outcome_category %></td>
-  <td class="text-center"><%= outcome.description.truncate(25) %></td>
-  <td class="text-center">R$ <%= outcome.value %>
+  <td class="text-center align-middle"><%= l outcome.date, format:  "%a, %d de %b" %></td>
+  <td class="text-center align-middle"><%= outcome.outcome_category %></td>
+  <td class="text-center align-middle"><%= outcome.description.truncate(25) %></td>
+  <td class="text-center align-middle">R$ <%= outcome.value %>
     <div>
       <span class="badge text-bg-warning"><%= outcome.payment_form %></span>
     </div>

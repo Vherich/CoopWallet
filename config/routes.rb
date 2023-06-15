@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   # resources :outcomes, only: [:show, :destroy]
-  resources :outcomes, only: :destroy
+  resources :outcomes, only: [:edit, :update, :destroy]
   resources :incomes, only: [:edit, :update, :destroy]
 
   resources :memberships, only: :update do
