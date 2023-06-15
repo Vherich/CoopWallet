@@ -5,11 +5,10 @@
       <h3>Você não tem convites 😢</h3>
     <% else %>
       <% @memberships.each do |membership| %>
-        <%= membership.group.group_name %>
+        <%= GroupHelper::Name.find(membership.group_reference) %>
         <%= button_to "Aceitar Convite", membership_path(membership), method: :patch %>
         <%= button_to "Recusar Convite", deny_memberships_path(membership), method: :delete %>
       <% end %>
     <% end %>
   </div>
 </div>
-
