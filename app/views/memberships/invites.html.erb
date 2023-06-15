@@ -1,13 +1,17 @@
 <div class="container">
-  <div class="text-center mt-5 mb-5">
+  <div class="total-box row">
     <h1>Meus Convites</h1>
     <% if @memberships.empty? %>
       <h3>Você não tem convites 😢</h3>
     <% else %>
       <% @memberships.each do |membership| %>
-        <%= GroupHelper::Name.find(membership.group_reference) %>
-        <%= button_to "Aceitar Convite", membership_path(membership), method: :patch %>
-        <%= button_to "Recusar Convite", deny_memberships_path(membership), method: :delete %>
+        <h2><%= GroupHelper::Name.find(membership.group_reference) %></h2>
+        <div class="col">
+          <%= button_to "Recusar", deny_memberships_path(membership), method: :delete, class: "btn btn-danger btn" %>
+        </div>
+        <div class="col">
+          <%= button_to "Aceitar", membership_path(membership), method: :patch, class: "btn btn-success btn" %>
+        </div>
       <% end %>
     <% end %>
   </div>

@@ -85,14 +85,16 @@
                 <%= f.input :year,  collection: (2020..2030).to_a, label: "Ano", selected: year %>
               </div>
             </div>
-              <div><%= f.submit %></div>
+              <div><%= f.submit "Aplicar Filtro"%></div>
             <% end %>
           </div>
-          <canvas
-            data-controller="chart"
-            data-chart-data-value="<%= @chart_data.to_json %>"
-            data-chart-options-value="<%= @chart_options.to_json %>"
-          ></canvas>
+          <div class="mt-5">
+            <canvas class="pie-chart"
+              data-controller="chart"
+              data-chart-data-value="<%= @chart_data.to_json %>"
+              data-chart-options-value="<%= @chart_options.to_json %>"
+            ></canvas>
+          </div>
         </div>
       </div>
     <% end %>
@@ -103,7 +105,7 @@
     </div>
     <div class="row mt-4">
       <div class="col-2">
-        <%= link_to "Adicionar usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
+        <%= link_to "Novo Usuário", new_group_membership_path(@user.group.id), class:"btn btn-outline-light mb-3" %>
       </div>
       <div class="col-3">
         <%= button_to "Sair do Grupo", group_membership_path(current_user), method: :delete, class: "btn btn-outline-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
