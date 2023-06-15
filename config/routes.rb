@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :groups do
     resources :incomes, only: [:new, :create, :index]
     # resources :outcomes, except: :show
-    resources :outcomes
+    resources :outcomes, only: [:new, :create, :index]
     resources :memberships, except: :update
   end
   resources :users do

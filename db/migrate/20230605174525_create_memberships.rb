@@ -4,7 +4,7 @@ class CreateMemberships < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.references :group, foreign_key: true
       t.boolean :accepted, null: false, default: false
-      t.integer :group_reference, null: false
+      t.integer :group_reference
 
       t.timestamps
     end
