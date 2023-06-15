@@ -35,11 +35,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_174525) do
 
   create_table "memberships", force: :cascade do |t|
     t.bigint "user_id", null: false
-
     t.bigint "group_id"
     t.boolean "accepted", default: false, null: false
-    t.integer "group_reference", null: false
-
+    t.integer "group_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"

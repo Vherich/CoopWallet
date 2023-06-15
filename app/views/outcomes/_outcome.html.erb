@@ -4,12 +4,12 @@
   <td class="text-center align-middle"><%= outcome.description.truncate(25) %></td>
   <td class="text-center align-middle">R$ <%= outcome.value %>
     <div>
-      <span class="badge text-bg-warning"><%= outcome.payment_form %></span>
+      <span class="badge text-bg-warning align-middle"><%= outcome.payment_form %></span>
     </div>
   </td>
-  <td class="text-center"><%= outcome.user.name %></td>
+  <td class="text-center align-middle"><%= outcome.user.name %></td>
   <td>
-    <div class="d-flex align-itens-center justify-content-around">
+    <div class="d-flex align-itens-center justify-content-around align-middle">
       <button type="button" class="btn btn-primary btn-sm w-25" data-bs-toggle="modal" data-bs-target="#outcomeModal-<%= outcome.id %>"><i class="fa-regular fa-pen-to-square"></i></button>
       <%=button_to outcome_path(outcome), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class:"btn btn-danger btn-sm w-100" do %>
       <i class="fa-regular fa-trash-can"  style="color: white;"></i>
