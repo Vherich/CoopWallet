@@ -54,14 +54,12 @@
             <div class="total-box bg-danger-light text-danger">
               <%= link_to 'Saídas', group_outcomes_path(@user.group), class: "btn btn-danger btn-lg" %>
               <p class="total-amount">R$ <%= @total_outcome_per_group %></p>
-              <%= link_to 'Ver detalhes', group_outcomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
             </div>
           </div>
           <div class="col mb-3">
             <div class="total-box bg-success-light text-success">
               <%= link_to 'Entradas', group_incomes_path(@user.group), class: "btn btn-success btn-lg" %>
               <p class="total-amount">R$ <%= @total_income_per_group %></p>
-              <%= link_to 'Ver detalhes', group_incomes_path(@user.group), class: "btn btn-secondary btn-sm mt-3" %>
             </div>
           </div>
           <div class="col mb-3">
