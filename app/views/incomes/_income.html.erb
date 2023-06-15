@@ -1,10 +1,10 @@
 <%= content_tag :tr, id: dom_id(income), class: dom_class(income) do %>
   <div class="container text-center">
-      <td class="text-center"><%= l income.date, format: "%a, %d de %b" %></td>
-      <td class="text-center"><%= income.income_category %></td>
-      <td class="text-center"><%= income.description %></td>
-      <td class="text-center">R$ <%= income.value %></td>
-      <td class="text-center"><%= income.user.name %></td>
+      <td class="text-center align-middle"><%= l income.date, format: "%a, %d de %b" %></td>
+      <td class="text-center align-middle"><%= income.income_category %></td>
+      <td class="text-center align-middle"><%= income.description %></td>
+      <td class="text-center align-middle">R$ <%= income.value %></td>
+      <td class="text-center align-middle"><%= income.user.name %></td>
 
       <td>
         <div class="d-flex align-itens-center justify-content-around px-3">

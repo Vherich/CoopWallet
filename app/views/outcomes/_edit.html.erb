@@ -1,4 +1,4 @@
-<%= simple_form_for outcome do |f|  %>
+<%= simple_form_for outcome do |f| %>
   <div class="row">
     <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } }, label: "Data", wrapper_html: { data: { controller: "flatpickr"}} %>
     <%= f.input :outcome_category, collection: Outcome::CATEGORY, label: "Categoria" %>
