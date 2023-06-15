@@ -1,20 +1,22 @@
 <div class="container">
-  <div class="row">
+  <div>
     <h1>Meus Convites</h1>
-      <div class="total-box">
+    <div class="total-box">
         <% if @memberships.empty? %>
           <h3>Você não tem convites 😢</h3>
         <% else %>
           <% @memberships.each do |membership| %>
             <h2><%= GroupHelper::Name.find(membership.group_reference) %></h2>
+            <div class="row mt-4">
             <div class="col">
               <%= button_to "Recusar", deny_memberships_path(membership), method: :delete, class: "btn btn-danger btn" %>
             </div>
             <div class="col">
               <%= button_to "Aceitar", membership_path(membership), method: :patch, class: "btn btn-success btn" %>
             </div>
+            </div>
           <% end %>
         <% end %>
-      </div>
+    </div>
   </div>
 </div>
