@@ -1,1 +1,1 @@
-coopwallet.one
+www.coopwallet.one
