@@ -1,1 +1,1 @@
-www.coopwallet.one
+https://coop-wallet.herokuapp.com/
